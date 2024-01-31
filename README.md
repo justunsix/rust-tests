@@ -6,6 +6,11 @@ Tests with Rust language
 
 - [Rust Tools](https://doc.rust-lang.org/book/ch01-01-installation.html)
 
+Optional for language support:
+
+- Install [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
+  - For example in VSCode, install the rust-analyzer extension or install with rustup `rustup component add rust-analyzer`
+
 ## Usage
 
 ``` shell
