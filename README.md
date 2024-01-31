@@ -13,11 +13,30 @@ Optional for language support:
 
 ## Usage
 
+### Using Cargo
+
 ``` shell
 
   # Go into relevant project directory
   cd <project>
   # Run project
   cargo run
+
+```
+
+### Using Makefile
+
+- Can be used if make is installed on Linux, MacOS, or Windows with git bash and make installed
+
+``` shell
+
+  # Install rust-analyzer
+  make install
+
+  # See available programs to run
+  make
+
+  # Choose program to run
+  make <run...>
 
 ```
