@@ -11,6 +11,10 @@ Optional for language support:
 - Install [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
   - For example in VSCode, install the rust-analyzer extension or install with rustup `rustup component add rust-analyzer`
 
+Alternatively, develop in browser
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/justunsix/rust-tests)
+
 ## Usage
 
 ### Using Cargo
