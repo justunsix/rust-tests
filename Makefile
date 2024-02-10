@@ -9,11 +9,10 @@ install: ## Install or update dependencies
 	rustup component add rust-analyzer
 
 run-hello-cargo: ## Run hello world
-	cd 1-Getting-Started/hello_cargo && cargo run
+	cargo run -p a-getting-started
 
 run-guessing-game: ## Run guessing game
-	cd 2-Game/guessing_game && cargo run
+	cargo run -p b-game
 
-clean-all: ## Clean rust projects
-	cd 2-Game/guessing_game && cargo clean
-	cd 1-Getting-Started/hello_cargo && cargo clean
+clean: ## Clean rust projects
+	cargo clean

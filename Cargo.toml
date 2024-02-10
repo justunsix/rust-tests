@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "a-getting-started",
+    "b-game",
+]
