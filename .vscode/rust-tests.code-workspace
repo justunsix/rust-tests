@@ -19,7 +19,7 @@
 			// -- debugger
 			"vadimcn.vscode-lldb",
 			"tamasfe.even-better-toml",
-			"serayuzgur.crates",
+			"fill-labs.dependi",
 		]
 	}
 }
