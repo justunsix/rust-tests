@@ -1,10 +1,11 @@
 fn main() {
     let hello = "hello";
     println!("{} world", hello);
+    truthy();
 }
 
 fn truthy() -> bool {
-    return true;
+    true
 }
 
 #[cfg(test)]
@@ -13,6 +14,6 @@ mod test {
 
     #[test]
     fn test_something() {
-        assert_eq!(truthy(), true);
+        assert!(truthy());
     }
 }
