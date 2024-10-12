@@ -9,7 +9,8 @@ Tests with Rust language
 Optional for language support:
 
 - Install [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
-  - For example in VSCode, install the rust-analyzer extension or install with rustup `rustup component add rust-analyzer`
+  - For example in VSCode, install the rust-analyzer extension or install
+  with rustup `rustup component add rust-analyzer`
 
 Alternatively, develop in browser
 
@@ -30,7 +31,8 @@ Alternatively, develop in browser
 
 ### Using Makefile
 
-- Can be used if make is installed on Linux, MacOS, or Windows with git bash and make installed
+- Can be used if make is installed on Linux, MacOS, or Windows
+with git bash and make installed
 
 ``` shell
 
