@@ -1,6 +1,4 @@
 [workspace]
 
-members = [
-    "a-getting-started",
-    "b-game",
-]
+members = ["a-getting-started", "b-game", "a1-tests"]
+resolver = "1"
