@@ -1,5 +1,12 @@
 # Rust Tests
 
+<!--toc:start-->
+
+- [Rust Tests](#rust-tests)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage) - [Using Cargo](#using-cargo) - [Using Makefile](#using-makefile)
+  <!--toc:end-->
+
 Tests with Rust language
 
 ## Prerequisites
@@ -10,7 +17,7 @@ Optional for language support:
 
 - Install [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
   - For example in VSCode, install the rust-analyzer extension or install
-  with rustup `rustup component add rust-analyzer`
+    with rustup `rustup component add rust-analyzer`
 
 Alternatively, develop in browser
 
@@ -20,7 +27,7 @@ Alternatively, develop in browser
 
 ### Using Cargo
 
-``` shell
+```shell
 
   # Go into relevant project directory
   cd <project>
@@ -32,9 +39,9 @@ Alternatively, develop in browser
 ### Using Makefile
 
 - Can be used if make is installed on Linux, MacOS, or Windows
-with git bash and make installed
+  with git bash and make installed
 
-``` shell
+```shell
 
   # Install rust-analyzer
   make install
