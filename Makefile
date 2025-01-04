@@ -6,7 +6,7 @@ help: ## Show this help
 
 install: ## Install or update dependencies
 	echo "Install rustup using https://rustup.rs/ first"
-	rustup component add rust-analyzer
+	rustup component add rust-analyzer rustfmt clippy
 
 run-hello-cargo: ## Run hello world
 	cargo run -p a-getting-started
