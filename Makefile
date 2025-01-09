@@ -16,3 +16,9 @@ run-guessing-game: ## Run guessing game
 
 clean: ## Clean rust projects
 	cargo clean
+
+.PHONY: lint-and-fix
+lint-and-fix:
+	cargo fmt
+	cargo clippy
+	cargo fix
