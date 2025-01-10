@@ -17,8 +17,18 @@ run-guessing-game: ## Run guessing game
 clean: ## Clean rust projects
 	cargo clean
 
-.PHONY: lint-and-fix
+build: ## Build for development
+	cargo build
+
+build-release: ## Build for release
+	cargo build --release
+
+check: ## Check project(s) compile
+	cargo check
+	
+.PHONY: lint-and-fix ## Format, Analyze and autofix files if possible
 lint-and-fix:
-	cargo fmt
+	# -v : verbose
+	cargo fmt -v
 	cargo clippy
 	cargo fix
