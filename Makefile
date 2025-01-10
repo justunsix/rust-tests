@@ -26,9 +26,13 @@ build-release: ## Build for release
 check: ## Check project(s) compile
 	cargo check
 	
-.PHONY: lint-and-fix ## Format, Analyze and autofix files if possible
-lint-and-fix:
+.PHONY: lint-and-fix
+lint-and-fix: ## Format, Analyze and autofix files if possible
 	# -v : verbose
 	cargo fmt -v
 	cargo clippy
 	cargo fix
+
+.PHONY: docs-open
+docs-open: ## Open documentation for program and dependencies
+	cargo doc --open
