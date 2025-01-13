@@ -9,7 +9,7 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 - [rustup](https://www.rust-lang.org/tools/install)
 - [protobuf (protoc)](https://github.com/protocolbuffers/protobuf)
 - Optional - Clear your pwsh and/or PowerShell profiles during testing to be
-  sure other modules or environment settings from conflicting with atuin.
+  sure other modules or environment settings do not conflict with atuin.
 
 ### Test on Windows 11
 
