@@ -1,6 +1,6 @@
-# Testing Pull Request #2543 Add PowerShell module
+# Testing Atuin Pull Request #2543 Add PowerShell module
 
-Link: [#2543 Add PowerShell module](https://github.com/atuinsh/atuin/pull/2543)
+Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atuinsh/atuin/pull/2543)
 
 ## Test Steps
 
