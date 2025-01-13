@@ -45,6 +45,20 @@ atuin search -i
 
 ```
 
+### Optional - Continue Testing on Nushell
+
+- Continue from the commands above and enter nushell
+
+```sh
+
+# Check atuin points to the PR version
+which atuin
+
+# Verify commands are showing up in atuin history
+atuin search -i
+
+```
+
 ## Test Environment and Versions
 
 From tests run on 2025-01-12
@@ -111,6 +125,10 @@ info: The currently active `rustc` version is `rustc 1.84.0 (9fc6b4312 2025-01-0
 protoc --version
 libprotoc 29.3
 
+# Nushell
+nu --version
+0.101.0
+
 ```
 
 ## Error: migration 20230531212437 and Fix to Delete Old Files
@@ -139,11 +157,11 @@ Line |
 recognized as a name of a cmdlet, function, script file, or executable program.
 Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 
-
 ```
 
 ### Fix
 
 It was found that files in `~/.local/share/atuin` were causing issues with the install.
-The files were from previous experimental atuin pwsh scripts.
-After removing the files, the error went away.
+After removing the files in the directory, the error went away.
+
+System could run powershell and nushell fine and they share that directory.
