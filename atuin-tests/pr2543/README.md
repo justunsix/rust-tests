@@ -162,6 +162,7 @@ Check the spelling of the name, or if a path was included, verify that the path 
 ### Fix
 
 It was found that files in `~/.local/share/atuin` were causing issues with the install.
-After removing the files in the directory, the error went away.
+Specifically, the `records.db` in the directory had an issue and once it was removed, the error went away
+with a new `records.db` being generated.
 
 System could run powershell and nushell fine and they share that directory.
