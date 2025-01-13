@@ -13,6 +13,8 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 
 ### Test on Windows 11
 
+Run on 2025-01-13
+
 ```sh
 # Remove any installed atuin binary
 cargo uninstall atuin
@@ -28,14 +30,25 @@ git checkout powershell-pr
 cargo build --release
 
 cd target/release
-# Run installation per https://github.com/atuinsh/atuin/pull/2543
+
+# Run installation per steps explained in first post of https://github.com/atuinsh/atuin/pull/2543
+
 # Temporarily add atuin to path
-$Env:Path += ";path/to/target/release"
+$Env:Path += ";path\to\target\release"
+# Temporarily change where atuin stores it's database
+# Set environment variables to temporary files
+# Otherwise, existing database schema will be migrated to a new format, and
+# you will have to stay with the Atuin version from this test branch
+mkdir $Env:USERPROFILE\tempatuin
+$env:ATUIN_DB_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_dev.db"
+$env:ATUIN_RECORD_STORE_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_records.db"
 
 # Verify path change and location of binary
 $Env:Path
 # Check atuin points to the PR version
 Get-Command "atuin"
+
+# Install
 atuin init powershell | Out-String | Invoke-Expression
 
 # Type some commands like ls, cd ...
@@ -58,6 +71,10 @@ which atuin
 atuin search -i
 
 ```
+
+### Clean up Test Environment
+
+- Remove the directory `$Env:USERPROFILE\tempatuin` and test branch release files if desired.
 
 ## Test Environment and Versions
 
@@ -131,9 +148,11 @@ nu --version
 
 ```
 
-## Error: migration 20230531212437 and Fix to Delete Old Files
+## Error: migration 20230531212437 and Fix
 
-The error below was encountered during testing and a fix is listed below.
+The error below was encountered during testing and a fix is listed below. 
+
+It is not related to changes in the pull request (PR) and is due to changes in the main branch of Atuin. It occurs during testing if the steps to temporarily change where atuin stores it's database are not done.
 
 ```sh
 
@@ -159,13 +178,13 @@ Check the spelling of the name, or if a path was included, verify that the path 
 
 ```
 
-The error also occurs when testing with atuin/main in nushell in the same environment, so error
-is not caused by changes in the PR.
-
 ### Fix
 
-It was found that files in `~/.local/share/atuin` were causing issues with the install.
+- During testing, run the commands in the "Test on Windows 11" section under comment `# Temporarily change where atuin stores it's database`, then retry tests.
 
-- There was a problem with the local `~/.local/share/atuin/records.db`. Fix was to delete `records.db` and have a new one generated.
+#### Explanation
+
+If the step was not done, Atuin will try to migrate the database schema to a new format and files in `~/.local/share/atuin` will be an issue.
+
+- The local `~/.local/share/atuin/records.db` will attempt to be migrated. A not recommended fix is to delete `records.db` and have a new one generated.
 - The system could run powershell and nushell fine with atuin and they successfully shared `~/.local/share/atuin/`
-- System could run powershell and nushell fine and they share that directory.
