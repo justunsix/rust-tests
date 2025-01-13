@@ -8,10 +8,10 @@ Link: [#2543 Add PowerShell module](https://github.com/atuinsh/atuin/pull/2543)
 
 - [rustup](https://www.rust-lang.org/tools/install)
 - [protobuf (protoc)](https://github.com/protocolbuffers/protobuf)
-- Optional - Clear your pwsh and/or PowerShell profile during testing to be
+- Optional - Clear your pwsh and/or PowerShell profiles during testing to be
   sure other modules or environment settings from conflicting with atuin.
 
-Test on Windows 11
+### Test on Windows 11
 
 ```sh
 # Remove any installed atuin binary
@@ -41,7 +41,7 @@ atuin init powershell | Out-String | Invoke-Expression
 # Type some commands like ls, cd ...
 # Verify commands are showing up in atuin history
 atuin search -i
-# Press up arrow
+# Press up arrow to see same history
 
 ```
 
@@ -66,8 +66,8 @@ From tests run on 2025-01-12
 Summary:
 
 - Windows 11 10.0.26100 N/A Build 26100
-- pwsh 7.4.6 with PSReadLine 2.3.5
-- powershell 5.1.26100.2161 with PSReadLine 2.3.6
+- PowerShell 7.4.6 with PSReadLine 2.3.5
+- PowerShell 5.1.26100.2161 with PSReadLine 2.3.6
 
 ```sh
 # Windows Version
@@ -162,7 +162,7 @@ Check the spelling of the name, or if a path was included, verify that the path 
 ### Fix
 
 It was found that files in `~/.local/share/atuin` were causing issues with the install.
-Specifically, the `records.db` in the directory had an issue and once it was removed, the error went away
+Specifically, the `~/.local/share/atuin/records.db` in the directory had an issue and once it was removed, the error went away
 with a new `records.db` being generated.
 
 System could run powershell and nushell fine and they share that directory.
