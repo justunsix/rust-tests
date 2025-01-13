@@ -159,10 +159,13 @@ Check the spelling of the name, or if a path was included, verify that the path 
 
 ```
 
+The error also occurs when testing with atuin/main in nushell in the same environment, so error
+is not caused by changes in the PR.
+
 ### Fix
 
 It was found that files in `~/.local/share/atuin` were causing issues with the install.
-Specifically, the `~/.local/share/atuin/records.db` in the directory had an issue and once it was removed, the error went away
-with a new `records.db` being generated.
 
-System could run powershell and nushell fine and they share that directory.
+- There was a problem with the local `~/.local/share/atuin/records.db`. Fix was to delete `records.db` and have a new one generated.
+- The system could run powershell and nushell fine with atuin and they successfully shared `~/.local/share/atuin/`
+- System could run powershell and nushell fine and they share that directory.
