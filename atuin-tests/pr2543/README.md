@@ -7,17 +7,14 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 ### Pre-requisites
 
 - [rustup](https://www.rust-lang.org/tools/install)
-- [protobuf (protoc)](https://github.com/protocolbuffers/protobuf)
+- Windows only: [protobuf (protoc)](https://github.com/protocolbuffers/protobuf) 
+- Remove existing installations of the Atuin binary (for example [Uninstalling Atuin](https://docs.atuin.sh/uninstall/), `cargo uninstall atuin`, remove it from path)
 - Optional - Clear your pwsh and/or PowerShell profiles during testing to be
   sure other modules or environment settings do not conflict with atuin.
 
-### Test on Windows 11
+### Build Atuin Pull Request (PR) 2543 Branch
 
-Run on 2025-01-13
-
-```sh
-# Remove any installed atuin binary
-cargo uninstall atuin
+``` sh
 
 # Get PR
 git clone https://github.com/ltrzesniewski/atuin.git
@@ -29,7 +26,14 @@ git checkout powershell-pr
 # Build atuin
 cargo build --release
 
+# Check binary
 cd target/release
+
+```
+
+### Test on Windows 11
+
+```sh
 
 # Run installation per steps explained in first post of https://github.com/atuinsh/atuin/pull/2543
 
@@ -40,6 +44,7 @@ $Env:Path += ";path\to\target\release"
 # Otherwise, existing database schema will be migrated to a new format, and
 # you will have to stay with the Atuin version from this test branch
 mkdir $Env:USERPROFILE\tempatuin
+
 $env:ATUIN_DB_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_dev.db"
 $env:ATUIN_RECORD_STORE_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_records.db"
 
@@ -58,7 +63,44 @@ atuin search -i
 
 ```
 
-### Optional - Continue Testing on Nushell
+### Test on Ubuntu 24.04
+
+Most commands are same as above for Windows; however, there are some differences in slashes 
+and environment variable settings.
+
+```sh
+
+# Run installation per steps explained in first post of https://github.com/atuinsh/atuin/pull/2543
+
+# Temporarily add atuin to path
+$Env:PATH += ":path/to/target/release/"
+# Temporarily change where atuin stores it's database
+# Set environment variables to temporary files
+# Otherwise, existing database schema will be migrated to a new format, and
+# you will have to stay with the Atuin version from this test branch
+
+# On Linux, $Env:USERPROFILE may not be set, so use user's home directory explicitly
+mkdir /home/user1/tempatuin
+
+$Env:ATUIN_DB_PATH = "/home/user1/tempatuin/temp_atuin_dev.db"
+$Env:ATUIN_RECORD_STORE_PATH = "/home/user1/tempatuin/temp_atuin_records.db"
+
+# Verify path change and location of binary
+$Env:PATH
+# Check atuin points to the PR version
+Get-Command "atuin"
+
+# Install
+atuin init powershell | Out-String | Invoke-Expression
+
+# Type some commands like ls, cd ...
+# Verify commands are showing up in atuin history
+atuin search -i
+# Press up arrow to see same history
+
+```
+
+#### Optional - Continue Testing on Nushell
 
 - Continue from the commands above and enter nushell
 
@@ -72,9 +114,27 @@ atuin search -i
 
 ```
 
+### Test Cases
+
+Run and verify the following. They were run successfully on 2025-01-13
+
+- Run some commands like dir, cd, atuin info and others
+
+Confirm the following works:
+
+- Run `atuin info` to verify configurations look correct and temporary database is used
+- Run `atuin doctor` to check for issues
+- Add commands to temporary history for testing, then run:
+  - `atuin search -i` or equivalent shortcut like up arrow
+  - `atuin stats` to see statistics on commands
+- Start a new session and apply temporary environment variables, then run:
+  - `atuin history list --session` to view current session's commands
+- Using a multiple line prompt, set `$Env:ATUIN_POWERSHELL_PROMPT_OFFSET`, see extra lines are not added
+  during use of `atuin search -i` and selections, for example `$Env:ATUIN_POWERSHELL_PROMPT_OFFSET=-3`
+
 ### Clean up Test Environment
 
-- Remove the directory `$Env:USERPROFILE\tempatuin` and test branch release files if desired.
+- Remove `tempatuin` directory and test branch release files if desired.
 
 ## Test Environment and Versions
 
@@ -82,9 +142,11 @@ From tests run on 2025-01-12
 
 Summary:
 
-- Windows 11 10.0.26100 N/A Build 26100
-- PowerShell 7.4.6 with PSReadLine 2.3.5
-- PowerShell 5.1.26100.2161 with PSReadLine 2.3.6
+- PowerShell 7.4.6 / PSReadLine 2.3.5 / Windows 11 10.0.26100 N/A Build 26100
+- PowerShell 5.1.26100.2161 / PSReadLine 2.3.6 / Windows 11 10.0.26100 N/A Build 26100
+- PowerShell 7.4.6 / PSReadline 2.3.5 / Ubuntu 24.04.1 LTS
+
+### Windows Versions
 
 ```sh
 # Windows Version
@@ -146,6 +208,77 @@ libprotoc 29.3
 nu --version
 0.101.0
 
+```
+
+### Linux Versions
+
+``` sh
+
+atuin doctor
+Atuin Doctor
+Checking for diagnostics
+
+
+Please include the output below with any bug reports or issues
+
+{
+  "atuin": {
+    "version": "18.4.0",
+    "sync": null,
+    "sqlite_version": "3.46.0"
+  },
+  "shell": {
+    "name": "pwsh",
+    "default": "unknown",
+    "plugins": [
+      "atuin"
+    ],
+    "preexec": "built-in"
+  },
+  "system": {
+    "os": "Ubuntu",
+    "arch": "x86_64",
+    "version": "24.04",
+    "disks": [
+    # disk info removed from output
+    ]
+  }
+}
+
+$PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      7.4.6
+PSEdition                      Core
+GitCommitId                    7.4.6
+OS                             Ubuntu 24.04.1 LTS
+Platform                       Unix
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+
+Get-Module PSReadLine
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Script     2.3.5                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Rem…A
+
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04.1 LTS
+Release:        24.04
+Codename:       noble
+
+rustup --version
+rustup 1.27.1 (54dd3d00f 2024-04-24)
+info: This is the version for the rustup toolchain manager, not the rustc compiler.
+info: The currently active `rustc` version is `rustc 1.84.0 (9fc6b4312 2025-01-07)`
+
+nu --version
+0.101.0
 ```
 
 ## Error: migration 20230531212437 and Fix
