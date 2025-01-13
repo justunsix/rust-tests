@@ -8,12 +8,10 @@ Link: [#2543 Add PowerShell module](https://github.com/atuinsh/atuin/pull/2543)
 
 - [rustup](https://www.rust-lang.org/tools/install)
 - [protobuf (protoc)](https://github.com/protocolbuffers/protobuf)
+- Optional - Clear your pwsh and/or PowerShell profile during testing to be
+  sure other modules or environment settings from conflicting with atuin.
 
-Assuming installation on Windows
-
-- Optional step is to clear your pwsh, PowerShell profile
-during testing to avoid other modules or environment settings from
-conflicting with atuin.
+Test on Windows 11
 
 ```sh
 # Remove any installed atuin binary
@@ -33,7 +31,6 @@ cd target/release
 # Run installation per https://github.com/atuinsh/atuin/pull/2543
 # Temporarily add atuin to path
 $Env:Path += ";path/to/target/release"
-$Env:Path += ";C:\Users\justi\usr\reference\atuin\target\release"
 
 # Verify path change and location of binary
 $Env:Path
@@ -41,7 +38,7 @@ $Env:Path
 Get-Command "atuin"
 atuin init powershell | Out-String | Invoke-Expression
 
-# Type some commands
+# Type some commands like ls, cd ...
 # Verify commands are showing up in atuin history
 atuin search -i
 # Press up arrow
@@ -120,7 +117,6 @@ libprotoc 29.3
 
 The error below was encountered during testing and a fix is listed below.
 
-
 ```sh
 
 Error: migration 20230531212437 was previously applied but has been modified
@@ -149,4 +145,5 @@ Check the spelling of the name, or if a path was included, verify that the path 
 ### Fix
 
 It was found that files in `~/.local/share/atuin` were causing issues with the install.
+The files were from previous experimental atuin pwsh scripts.
 After removing the files, the error went away.
