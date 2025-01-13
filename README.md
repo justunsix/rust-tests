@@ -1,12 +1,5 @@
 # Rust Tests
 
-<!--toc:start-->
-
-- [Rust Tests](#rust-tests)
-  - [Prerequisites](#prerequisites)
-  - [Usage](#usage) - [Using Cargo](#using-cargo) - [Using Makefile](#using-makefile)
-  <!--toc:end-->
-
 Tests with Rust language
 
 ## Prerequisites
@@ -46,10 +39,7 @@ Alternatively, develop in browser
   # Install rust-analyzer
   make install
 
-  # See available programs to run
+  # See available tasks to run like run, build
   make
-
-  # Choose program to run
-  make <run...>
 
 ```
