@@ -8,13 +8,13 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 
 - [rustup](https://www.rust-lang.org/tools/install)
 - Remove existing installations of the Atuin binary (for example [Uninstalling Atuin](https://docs.atuin.sh/uninstall/), `cargo uninstall atuin`, or remove it from path)
-- Windows only: [protobuf (protoc)](https://github.com/protocolbuffers/protobuf) 
+- Windows only: [protobuf (protoc)](https://github.com/protocolbuffers/protobuf)
 - Optional - Clear your pwsh and/or PowerShell profiles during testing to be
   sure other modules or environment settings do not conflict with atuin.
 
 ### Build Atuin Pull Request (PR) 2543 Branch
 
-``` sh
+```sh
 
 # Get PR
 git clone https://github.com/ltrzesniewski/atuin.git
@@ -65,7 +65,7 @@ atuin search -i
 
 ### Test on Ubuntu 24.04
 
-Most commands are same as above for Windows; however, there are some differences in slashes 
+Most commands are same as above for Windows; however, there are some differences in slashes
 and environment variable settings.
 
 ```sh
@@ -138,7 +138,8 @@ Confirm the following works:
 
 ### Example PowerShell profiles for Testing
 
-See in the Windows and Linux folders of this README.md.
+- [For Linux](Linux/Microsoft.PowerShell_profile.ps1)
+- [For Windows](Windows/Microsoft.PowerShell_profile.ps1)
 
 ## Test Environment and Versions
 
@@ -248,7 +249,7 @@ nu --version
 
 ### Linux Versions
 
-``` sh
+```sh
 
 atuin doctor
 Atuin Doctor
@@ -319,7 +320,7 @@ nu --version
 
 ## Error: migration 20230531212437 and Fix
 
-The error below was encountered during testing and a fix is listed below. 
+The error below was encountered during testing and a fix is listed below.
 
 It is not related to changes in the pull request (PR) and is due to changes in the main branch of Atuin. It occurs during testing if the steps to temporarily change where atuin stores it's database are not done.
 
