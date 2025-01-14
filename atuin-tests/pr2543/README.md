@@ -7,8 +7,8 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 ### Pre-requisites
 
 - [rustup](https://www.rust-lang.org/tools/install)
+- Remove existing installations of the Atuin binary (for example [Uninstalling Atuin](https://docs.atuin.sh/uninstall/), `cargo uninstall atuin`, or remove it from path)
 - Windows only: [protobuf (protoc)](https://github.com/protocolbuffers/protobuf) 
-- Remove existing installations of the Atuin binary (for example [Uninstalling Atuin](https://docs.atuin.sh/uninstall/), `cargo uninstall atuin`, remove it from path)
 - Optional - Clear your pwsh and/or PowerShell profiles during testing to be
   sure other modules or environment settings do not conflict with atuin.
 
@@ -45,8 +45,8 @@ $Env:Path += ";path\to\target\release"
 # you will have to stay with the Atuin version from this test branch
 mkdir $Env:USERPROFILE\tempatuin
 
-$env:ATUIN_DB_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_dev.db"
-$env:ATUIN_RECORD_STORE_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_records.db"
+$Env:ATUIN_DB_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_dev.db"
+$Env:ATUIN_RECORD_STORE_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_records.db"
 
 # Verify path change and location of binary
 $Env:Path
@@ -136,9 +136,13 @@ Confirm the following works:
 
 - Remove `tempatuin` directory and test branch release files if desired.
 
+### Example PowerShell profiles for Testing
+
+See in the Windows and Linux folders of this README.md.
+
 ## Test Environment and Versions
 
-From tests run on 2025-01-12
+From tests run on 2025-01-13
 
 Summary:
 
@@ -149,6 +153,38 @@ Summary:
 ### Windows Versions
 
 ```sh
+
+atuin doctor
+Atuin Doctor
+Checking for diagnostics
+
+
+Please include the output below with any bug reports or issues
+
+{
+  "atuin": {
+    "version": "18.4.0",
+    "sync": null,
+    "sqlite_version": "3.46.0"
+  },
+  "shell": {
+    "name": "pwsh.exe",
+    "default": "powershell",
+    "plugins": [
+      "atuin"
+    ],
+    "preexec": "built-in"
+  },
+  "system": {
+    "os": "Windows",
+    "arch": "x86_64",
+    "version": "11 (26100)",
+    "disks": [
+    # disk info removed from output
+    ]
+  }
+}
+
 # Windows Version
 systeminfo | findstr /B /C:"OS Name" /B /C:"OS Version"
 OS Name:                       Microsoft Windows 11 Home

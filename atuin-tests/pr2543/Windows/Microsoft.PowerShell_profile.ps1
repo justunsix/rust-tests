@@ -1,8 +1,8 @@
 $Env:ATUIN_POWERSHELL_PROMPT_OFFSET=-3
 
-$Env:PATH += ":/home/user1/usr/reference/atuin/target/release"
-$Env:ATUIN_DB_PATH = "/home/user1/tempatuin/temp_atuin_dev.db"
-$Env:ATUIN_RECORD_STORE_PATH = "/home/user1/tempatuin/temp_atuin_records.db"
+$Env:Path += ";$Env:USERPROFILE\reference\atuin\target\release"
+$env:ATUIN_DB_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_dev.db"
+$env:ATUIN_RECORD_STORE_PATH = "$Env:USERPROFILE\tempatuin\temp_atuin_records.db"
 
 atuin init powershell | Out-String | Invoke-Expression
 
@@ -11,3 +11,5 @@ atuin init powershell | Out-String | Invoke-Expression
 if (Get-Command "starship" -ErrorAction SilentlyContinue) {
     Invoke-Expression (&starship init powershell)
 }
+
+
