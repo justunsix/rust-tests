@@ -10,16 +10,13 @@
 			// markdown
 			"yzhang.markdown-all-in-one",
 			"davidanson.vscode-markdownlint",
-			// assistant, ai
-			"github.copilot-chat",
-			"github.copilot",
 			"ban.spellright",
 			// rust
 			"rust-lang.rust-analyzer",
 			// -- debugger
 			"vadimcn.vscode-lldb",
 			"tamasfe.even-better-toml",
-			"fill-labs.dependi",
+			"fill-labs.dependi"
 		]
 	}
 }
