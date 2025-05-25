@@ -14,11 +14,17 @@ run-hello-cargo: ## Run hello world
 run-guessing-game: ## Run guessing game
 	cargo run -p b-game
 
+run-guessing-game-debug: build-guessing-game ## Debug guessing game
+	rust-gdb target/debug/b-game
+
 clean: ## Clean rust projects
 	cargo clean
 
 build: ## Build for development
 	cargo build
+
+build-guessing-game: ## Build for development
+	cargo build -p b-game
 
 build-release: ## Build for release
 	cargo build --release
