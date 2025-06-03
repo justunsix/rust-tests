@@ -16,18 +16,15 @@ Link to Pull Request (PR): [#2543 Add PowerShell module](https://github.com/atui
 
 ```sh
 
-# Get PR
+# Get PR branch, build atuin and check binary
 git clone https://github.com/ltrzesniewski/atuin.git
 cd atuin
-# Switch to branch powershell-pr
 git branch --track powershell-pr origin/powershell-pr
 git checkout powershell-pr
-
-# Build atuin
 cargo build --release
-
-# Check binary
 cd target/release
+# or install from source
+cargo install --git https://github.com/ltrzesniewski/atuin.git --branch powershell-pr
 
 ```
 
