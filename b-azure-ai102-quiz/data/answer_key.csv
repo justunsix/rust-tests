@@ -1,0 +1,46 @@
+question_number,module,question,correct_option_number,correct_option_text
+1,M1: Plan and Prepare,Which Azure platform is highlighted for developing generative AI solutions and custom apps?,2,Azure AI Foundry
+2,M1: Plan and Prepare,Which of the following is NOT a typical output of a generative AI model?,4,Hardware drivers
+3,M1: Plan and Prepare,What is the main difference between Large Language Models (LLMs) and Small Language Models (SLMs)?,2,SLMs have fewer parameters and smaller training data
+4,M1: Plan and Prepare,Which project type should you choose to create a simple chat app using a generative AI model in Azure?,1,Azure AI Foundry project
+5,M1: Plan and Prepare,Where can you test a deployed model in the Azure AI Foundry portal?,1,Chat playground
+6,M1: Plan and Prepare,What is the purpose of Retrieval Augmented Generation (RAG)?,2,To ground prompts with relevant data for more accurate responses
+7,M1: Plan and Prepare,What does fine-tuning a language model optimize?,2,How the model needs to act
+8,M1: Plan and Prepare,Which capability helps mitigate harmful content generation at the Safety System level in Azure AI Foundry?,3,Content filters
+9,M1: Plan and Prepare,Which evaluation technique allows you to apply your own judgment about the quality of responses to specific prompts?,2,Manual evaluations
+10,M2 Agents,"Which foundational technology underpins all workloads in the AI landscape, including generative AI, agents, and automation?",3,Machine Learning
+11,M2 Agents,"Which Azure service provides a managed platform for creating, managing, and using AI agents with enterprise security?",2,Azure AI Foundry Agent Service
+12,M2 Agents,Which tool is a low-code environment for building and deploying agents that integrate with Microsoft 365 and other channels?,2,Copilot Studio
+13,M2 Agents,What is a key benefit of using project-based resource management in Azure AI Foundry for agent development?,2,It simplifies managing resources and controlling access
+14,M2 Agents,What is the purpose of knowledge tools in Azure AI Agent Service?,2,"To ground prompts with data from sources like Bing, files, or Azure AI Search"
+15,M2 Agents,What is a main advantage of connected agents in Azure AI Foundry Agent Service?,2,They allow modular solutions with specialized roles for each agent
+16,M2 Agents,Which framework provides a unified toolkit for developing and orchestrating multi-agent solutions in Azure?,1,Microsoft Agent Framework
+17,M2 Agents,What is the first step when creating an agent in the Azure AI Foundry portal?,2,Deploy a supported model
+18,M2 Agents,Which benefit does dynamic tool discovery with MCP provide for AI agents?,2,Agents can always use the latest version of a tool without code changes
+19,M3: Natural Language,Which preconfigured feature is used to determine the language in which text is written?,2,Language detection
+20,M3: Natural Language,Which Azure resource is best suited if you only need prebuilt language capabilities or want to test the service using a free tier?,3,Language service resource
+21,M3: Natural Language,What is the main purpose of key phrase detection in natural language processing?,,
+22,M3: Natural Language,What does named entity recognition do?,2,Identifies entities mentioned in the text
+23,M3: Natural Language,What is the purpose of entity linking in text analysis?,2,To disambiguate entities of the same name using a knowledge base
+24,M3: Natural Language,Which feature is used to detect and remove sensitive information such as phone numbers and credit card details?,3,PII detection
+25,M3: Natural Language,"In conversational language understanding, what is an “intent”?",1,The specific action a user wants to perform
+26,M3: Natural Language,What is the role of entities in language understanding models?,2,To add specific context to intents
+27,M3: Natural Language,Which of the following is a learned feature in Azure AI Language service?,3,Custom text classification
+28,M4: Vision,Which deployment option is best if you only need image analysis capabilities or want to test the service using a free tier?,3,Computer Vision service resource
+29,M4: Vision,What is the main object used in the SDK to analyze images with Azure AI Vision?,2,ImageAnalysisClient
+30,M4: Vision,Which authentication methods are supported for accessing the Computer Vision API?,2,Key-based authentication and Microsoft Entra ID
+31,M4: Vision,"When using the Read feature in Azure AI Vision Image Analysis, what is the hierarchy of the returned results?",2,Blocks > Lines > Words
+32,M4: Vision,Which operation is NOT part of the Azure AI Vision Face service?,4,Emotion detection
+33,M4: Vision,What is required to train a model for image classification or object detection?,2,Tagged training images
+34,M4: Vision,Which classification type allows each image to be tagged with multiple class labels (Dogs and Cats)?,2,Multilabel
+35,M4: Vision,Which Azure AI service is used to train custom computer vision models for image classification and object detection?,2,Azure AI Custom Vision
+36,M4: Vision,Which model is highlighted as a state-of-the-art generative model for creating images from text descriptions?,2,DALL-E
+37,M5: Information Extraction,"Which AI workload focuses on extracting structured data from unstructured sources like documents, images, audio, and video?",2,Information Extraction
+38,M5: Information Extraction,"Which Azure service enables extraction and generation of data fields from text, images, audio, and video?",2,Azure AI Content Understanding
+39,M5: Information Extraction,Which of the following is NOT a typical use of image analysis in Azure AI Content Understanding?,4,Translating spoken language
+40,M5: Information Extraction,Which task can be accomplished by analyzing video with Azure AI Content Understanding?,1,Extracting key points from video conference recordings
+41,M5: Information Extraction,What is the first step in creating a custom analyzer with Azure AI Content Understanding?,1,Define a schema
+42,M5: Information Extraction,Which two configuration values are required to use the Azure AI Content Understanding REST API?,2,Endpoint and API key
+43,M5: Information Extraction,What is the main function of the Document Intelligence Service in Azure?,2,Data extraction from forms and documents
+44,M5: Information Extraction,Which type of custom model is ideal for extracting custom labels from documents with structured or unstructured layouts?,4,Layout model
+45,M5: Information Extraction,What does a confidence score indicate in the context of Azure Document Intelligence?,2,How accurate the model thinks a specific prediction is

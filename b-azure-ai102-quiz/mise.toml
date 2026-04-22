@@ -1,0 +1,19 @@
+[tasks.build]
+description = "Build the AI-102 quiz TUI"
+run = "cargo build"
+
+[tasks.check]
+description = "Type-check and compile without building binaries"
+run = "cargo check"
+
+[tasks.clean]
+description = "Remove build artifacts"
+run = "cargo clean"
+
+[tasks.dev]
+description = "Run quiz app in development mode"
+run = "cargo run -- ./AI-102-Quiz.org ./data"
+
+[tasks.release]
+description = "Run quiz app optimized for release"
+run = "cargo run --release -- ./AI-102-Quiz.org ./data"
