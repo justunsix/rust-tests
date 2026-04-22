@@ -381,7 +381,7 @@ A: Language detection
 A: Language service resource  - multi-service does not provide free tier.
 
 21. What is the main purpose of key phrase detection in natural language processing?
-A: To identify the main â€œtalking pointsâ€ of the text  - for sum text do to not need phrase we can do that trough keyword tree analyzing. Meanwhile we still need to detect what the text is about. "Paris" or "Paris"?
+A: To identify the main “talking points” of the text  - for text do to not need phrase we can do that through keyword tree analyzing. Meanwhile we still need to detect what the text is about. "Paris" or "Paris"?
 
 22. What does named entity recognition do?
 A: Identifies entities mentioned in the text
