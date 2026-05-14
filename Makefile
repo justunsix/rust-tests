@@ -14,6 +14,9 @@ run-hello-cargo: ## Run hello world
 run-guessing-game: ## Run guessing game
 	cargo run -p b-game
 
+clippy-check-azure-ai102-quiz: ## Check ai102 quiz tui
+	cargo clippy -p ai102_quiz_tui
+
 run-azure-ai102-quiz: ## Run quiz for Azure AI 102 Designing and Implementing a Microsoft Azure AI Solution
 	cargo run -p ai102_quiz_tui ./b-azure-ai102-quiz/AI-102-Quiz.org ./b-azure-ai102-quiz/data
 		
