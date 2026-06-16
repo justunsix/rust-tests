@@ -47,7 +47,7 @@ lint-and-fix: ## Format, Analyze and autofix files if possible
 
 TAGS: ## Create tags file with universal ctags for emacs (-e)
 	# Remove -e for vim
-	ctags -e -R --languages=Rust --exclude=target .
+	ctags -e -R --languages=Rust --exclude=target --exclude=.git .
 
 .PHONY: docs-open
 docs-open: ## Open documentation for program and dependencies
