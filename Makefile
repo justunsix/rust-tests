@@ -19,7 +19,7 @@ clippy-check-azure-ai102-quiz: ## Check ai102 quiz tui
 
 run-azure-ai102-quiz: ## Run quiz for Azure AI 102 Designing and Implementing a Microsoft Azure AI Solution
 	cargo run -p ai102_quiz_tui ./b-azure-ai102-quiz/AI-102-Quiz.org ./b-azure-ai102-quiz/data
-		
+
 run-guessing-game-debug: build-guessing-game ## Debug guessing game
 	rust-gdb target/debug/b-game
 
@@ -37,13 +37,17 @@ build-release: ## Build for release
 
 check: ## Check project(s) compile
 	cargo check
-	
+
 .PHONY: lint-and-fix
 lint-and-fix: ## Format, Analyze and autofix files if possible
 	# -v : verbose
 	cargo fmt -v
 	cargo clippy
 	cargo fix
+
+TAGS: ## Create tags file with universal ctags for emacs (-e)
+	# Remove -e for vim
+	ctags -e -R --languages=Rust --exclude=target .
 
 .PHONY: docs-open
 docs-open: ## Open documentation for program and dependencies
