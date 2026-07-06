@@ -11,6 +11,9 @@ install: ## Install or update dependencies
 run-hello-cargo: ## Run hello world
 	cargo run -p a-getting-started
 
+run-the-book-tests: ## Run exercises from the Rust Programming Language book
+	cargo run -p c-the-book-tests
+ 	
 run-guessing-game: ## Run guessing game
 	cargo run -p b-game
 
