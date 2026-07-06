@@ -20,7 +20,7 @@ fn fahrenheit_to_celsius() {
 
     io::stdin()
         .read_line(&mut input)
-        .expect("Failed to read selection");
+        .expect("Failed to read number");
 
     let input: f64 = match input.trim().parse() {
         Ok(num) => num,
@@ -33,10 +33,52 @@ fn fahrenheit_to_celsius() {
     let celsius: f64 = (input - 32.0) / 1.8;
     println!("The celsius of {input} F is {celsius} C")
 }
-fn nth_fibonacci() {
-    let nth_number: f64 = 0.0;
 
-    println!("{nth_number}");
+fn get_nth_fibonacci(n: u32) -> u32 {
+    const FIRST_FIBONACCI_ELEMENT: u32 = 0;
+    const SECOND_FIBONACCI_ELEMENT: u32 = 1;
+
+    if n == 1 {
+        FIRST_FIBONACCI_ELEMENT
+    } else if n == 2 {
+        SECOND_FIBONACCI_ELEMENT
+    } else {
+        let mut n_minus_2: u32 = FIRST_FIBONACCI_ELEMENT;
+        let mut n_minus_1: u32 = SECOND_FIBONACCI_ELEMENT;
+        let mut current_number: u32 = 0;
+        let mut counter = 3;
+        while counter <= n {
+            current_number = n_minus_1 + n_minus_2;
+            n_minus_2 = n_minus_1;
+            n_minus_1 = current_number;
+            counter += 1
+        }
+        current_number
+    }
+}
+
+fn nth_fibonacci() {
+    println!("Get the nth number in the Fibonacci sequence, input a whole number:");
+    let mut input: String = String::new();
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read number");
+
+    let input: u32 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a number.");
+            return;
+        }
+    };
+    if input == 0 {
+        println!("Please enter a number greater than zero.");
+        return;
+    }
+
+    let nth_number: u32 = get_nth_fibonacci(input);
+    println!("Fibonacci number #{input} is: {nth_number}")
 }
 
 fn lyrics_of_christmas_carol() {}
