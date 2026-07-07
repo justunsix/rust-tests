@@ -12,9 +12,10 @@ Optional for language support:
   - For example in VSCode, install the rust-analyzer extension or install
     with rustup `rustup component add rust-analyzer`
 
-Alternatively, develop in browser
+### Other Options
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/justunsix/rust-tests)
+- Develop in browser [![Open in Ona (formerly Gitpod)](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/justunsix/rust-tests)
+- Use `nix` and install all tools with `nix develop` with flake in this repository
 
 ## Usage
 
