@@ -7,7 +7,7 @@ fn print_menu() {
         "3. Lyrics of Christmas carol 'The Twelve days of Christmas'",
     ];
 
-    println!("======================\n");
+    println!("\n======================\n");
     for element in selections {
         println!("{element}");
     }
@@ -81,7 +81,46 @@ fn nth_fibonacci() {
     println!("Fibonacci number #{input} is: {nth_number}")
 }
 
-fn lyrics_of_christmas_carol() {}
+fn lyrics_of_christmas_carol() {
+    // Lyrics from https://www.godtube.com/popular-hymns/the-12-days-of-christmas
+    let days = [
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth",
+        "tenth", "eleventh", "twelveth",
+    ];
+    let gifts = [
+        "a Partridge in a Pear Tree",
+        "2 Turtle Doves",
+        "3 French Hens",
+        "4 Calling Birds",
+        "5 Golden Rings",
+        "6 Geese a Laying",
+        "7 Swans a Swimming",
+        "8 Maids a Milking",
+        "9 Ladies Dancing",
+        "10 Lords a Leaping",
+        "11 Pipers Piping",
+        "12 Drummers Drumming",
+    ];
+
+    for (gift_index, day) in days.into_iter().enumerate() {
+        let gift_of_day = gifts[gift_index];
+        println!("On the {day} of Christmas\nmy true love sent to me:");
+        // First Day
+        if gift_index == 0 {
+            println!("{gift_of_day}\n");
+        } else {
+            println!("{gift_of_day}");
+            let mut previous_gifts_index = gift_index - 1;
+            while previous_gifts_index > 0 {
+                let previous_gift = gifts[previous_gifts_index];
+                println!("{previous_gift}");
+                previous_gifts_index -= 1;
+            }
+            let first_gift = gifts[0];
+            println!("and {first_gift}\n")
+        }
+    }
+}
 
 fn main() {
     loop {
