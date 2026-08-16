@@ -6,6 +6,7 @@ members = [
   "a1-tests",
   "b-game-rust-py",
   "b-azure-ai102-quiz",
+  "b-keymapper",
   "c-the-book-tests",
 ]
 resolver = "1"
