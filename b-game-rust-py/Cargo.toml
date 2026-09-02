@@ -8,6 +8,8 @@ name = "guessing_game"
 # "cdylib" is necessary to produce a shared library for Python to import from.
 crate-type = ["cdylib"]
 
+[workspace]
+
 [dependencies]
 rand = "0.8.4"
 

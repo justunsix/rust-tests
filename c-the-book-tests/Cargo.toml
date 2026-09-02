@@ -3,4 +3,6 @@ name = "c-the-book-tests"
 version = "0.1.0"
 edition = "2024"
 
+[workspace]
+
 [dependencies]

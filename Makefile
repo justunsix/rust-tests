@@ -9,31 +9,30 @@ install: ## Install or update dependencies
 	rustup component add rust-analyzer rustfmt clippy
 
 run-hello-cargo: ## Run hello world
-	cargo run -p a-getting-started
+	cd a-getting-started || exit
+	cargo run
 
 run-the-book-tests: ## Run exercises from the Rust Programming Language book
-	cargo run -p c-the-book-tests
+	cd c-the-book-tests || exit
+	cargo run
  	
 run-guessing-game: ## Run guessing game
-	cargo run -p b-game
-
-clippy-check-azure-ai102-quiz: ## Check ai102 quiz tui
-	cargo clippy -p ai102_quiz_tui
+	cd b-game || exit
+	cargo run
 
 run-azure-ai102-quiz: ## Run quiz for Azure AI 102 Designing and Implementing a Microsoft Azure AI Solution
-	cargo run -p ai102_quiz_tui ./b-azure-ai102-quiz/AI-102-Quiz.org ./b-azure-ai102-quiz/data
+	cd b-azure-ai102-quiz || exit
+	cargo run -p ai102_quiz_tui ./AI-102-Quiz.org ./data
 
 run-guessing-game-debug: build-guessing-game ## Debug guessing game
-	rust-gdb target/debug/b-game
+	cd b-game || exit
+	rust-gdb ../target/debug/b-game
 
 clean: ## Clean rust projects
 	cargo clean
 
 build: ## Build for development
 	cargo build
-
-build-guessing-game: ## Build for development
-	cargo build -p b-game
 
 build-release: ## Build for release
 	cargo build --release
