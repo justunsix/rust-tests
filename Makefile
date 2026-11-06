@@ -1,5 +1,7 @@
 SHELL := bash
 
+RUST_BOOK_DIR := $(HOME)/Code/rust-book
+
 .PHONY: help
 help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -15,7 +17,7 @@ run-hello-cargo: ## Run hello world
 run-the-book-tests: ## Run exercises from the Rust Programming Language book
 	cd c-the-book-tests || exit
 	cargo run
- 	
+
 run-guessing-game: ## Run guessing game
 	cd b-game || exit
 	cargo run
@@ -27,6 +29,19 @@ run-azure-ai102-quiz: ## Run quiz for Azure AI 102 Designing and Implementing a 
 run-guessing-game-debug: build-guessing-game ## Debug guessing game
 	cd b-game || exit
 	rust-gdb ../target/debug/b-game
+
+.ONESHELL:
+build-rust-programming-language-book: ## Build the "The Rust Programming Language" book
+	if [ -d "$(RUST_BOOK_DIR)" ]; then \
+	  echo "$(RUST_BOOK_DIR) already exits"; \
+	else \
+	  git clone git@github.com:rust-lang/book.git "$(RUST_BOOK_DIR)"; \
+	fi
+	cd "$(RUST_BOOK_DIR)" || exit
+	# as of 2026-11-05
+	cargo install mdbook --locked --version 0.5.4
+	mdbook build
+	firefox "$(RUST_BOOK_DIR)/book/index.html"
 
 clean: ## Clean rust projects
 	cargo clean
